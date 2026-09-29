@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dataktu — autorisation TikTok</title>
+<style>
+  body { margin:0; font-family: system-ui, sans-serif; background:#0C2A2E; color:#F2F6F5; display:flex; min-height:100vh; align-items:center; justify-content:center; }
+  main { max-width:560px; padding:32px 20px; }
+  h1 { font-size:1.4rem; margin:0 0 12px; }
+  code { display:block; background:#155E68; padding:14px; border-radius:8px; word-break:break-all; font-size:1.05rem; margin:16px 0; user-select:all; }
+  button { background:#FFC845; color:#0C2A2E; border:0; padding:10px 18px; border-radius:6px; font-weight:700; font-size:1rem; }
+  .err { color:#FF8A80; }
+  p { line-height:1.5; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Autorisation TikTok</h1>
+  <div id="out"><p>Lecture des paramètres…</p></div>
+</main>
+<script>
+  const p = new URLSearchParams(location.search);
+  const out = document.getElementById('out');
+  if (p.get('error')) {
+    out.innerHTML = '<p class="err">Erreur : ' + p.get('error') + '<br>' + (p.get('error_description') || '') + '</p>';
+  } else if (p.get('code')) {
+    const code = p.get('code');
+    out.innerHTML = '<p>Copie ce code et colle-le dans le terminal :</p><code id="c"></code>'
+      + '<button onclick="navigator.clipboard.writeText(document.getElementById(\'c\').textContent).then(()=>this.textContent=\'Copié\')">Copier</button>'
+      + '<p style="opacity:.7;font-size:.9rem;margin-top:20px">Ce code est à usage unique et expire en quelques minutes. Cette page ne l\'envoie nulle part.</p>';
+    document.getElementById('c').textContent = code;
+  } else {
+    out.innerHTML = '<p>Aucun code dans l\'URL. Relance l\'autorisation depuis le script.</p>';
+  }
+</script>
+</body>
+</html>
