@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dataktu · callback</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+       background:#0C2A2E;color:#F2F6F5;font-family:'Space Mono',monospace;padding:16px;box-sizing:border-box;text-align:center}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:28px;margin:0 0 24px}
+  h1 span{color:#2EE6C8}
+  #code{word-break:break-all;background:#155E68;padding:16px;border-radius:8px;max-width:600px;font-size:14px}
+  button{margin-top:20px;background:#FFC845;color:#0C2A2E;border:0;border-radius:8px;padding:14px 28px;
+         font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700}
+  p{opacity:.7;font-size:12px;margin-top:16px}
+</style>
+</head>
+<body>
+<h1>data<span>ktu</span></h1>
+<div id="code">—</div>
+<button id="copy">Copier le code</button>
+<p>Colle-le dans le terminal (il expire en 30 secondes).</p>
+<script>
+  const q = new URLSearchParams(location.search);
+  const code = q.get('code');
+  const err = q.get('error');
+  document.getElementById('code').textContent = code || (err ? 'Erreur : ' + err : 'Aucun code dans l’URL');
+  document.getElementById('copy').onclick = async () => {
+    try { await navigator.clipboard.writeText(code || ''); document.getElementById('copy').textContent = 'Copié ✓'; }
+    catch(e) { document.getElementById('copy').textContent = 'Sélectionne le code à la main'; }
+  };
+</script>
+</body>
+</html>
