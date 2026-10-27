@@ -8,19 +8,33 @@
 <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png?v=2">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <title>dataktu</title>
-<meta name="description" content="dataktu — l'actualité et les tendances décryptées par la data. Vidéos courtes en français.">
+<meta name="description" content="dataktu — l'actualité et les tendances décryptées par la data. Short data-journalism videos in French.">
 <style>
-  :root { --ink:#0C2A2E; --yellow:#FFC845; --turq:#2EE6C8; --paper:#F6F5F1; }
+  :root { --ink:#0C2A2E; --ink2:#123A3F; --yellow:#FFC845; --turq:#2EE6C8; --paper:#F6F5F1; }
   * { box-sizing:border-box; }
   body { margin:0; font-family: "Public Sans", system-ui, -apple-system, sans-serif; background:var(--ink); color:var(--paper); line-height:1.6; }
-  main { max-width:680px; margin:0 auto; padding:64px 20px; }
+  main { max-width:720px; margin:0 auto; padding:56px 20px 64px; }
   h1 { font-size:2.4rem; margin:0 0 8px; letter-spacing:-0.02em; }
   h1 span { color:var(--turq); }
+  h2 { font-size:1.35rem; margin:48px 0 12px; letter-spacing:-0.01em; }
+  h3 { font-size:1rem; margin:0 0 4px; }
   .logo { width:96px; height:96px; border-radius:20px; display:block; margin:0 0 24px; }
-  .tag { color:var(--turq); font-family: "Space Mono", ui-monospace, monospace; font-size:0.9rem; margin-bottom:32px; }
+  .tag, .eyebrow { color:var(--turq); font-family: "Space Mono", ui-monospace, monospace; font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; }
+  .tag { margin-bottom:32px; text-transform:none; letter-spacing:0; font-size:0.95rem; }
   p { margin:0 0 16px; }
-  ul { padding-left:20px; }
+  ul, ol { padding-left:20px; margin:0 0 16px; }
+  li { margin-bottom:6px; }
   a { color:var(--yellow); }
+  code { font-family: "Space Mono", ui-monospace, monospace; font-size:0.85em; color:var(--turq); }
+  .lang { display:flex; gap:12px; font-size:0.9rem; margin-bottom:8px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:0 0 16px; }
+  .card { background:var(--ink2); border-radius:12px; padding:16px; }
+  .card p { font-size:0.92rem; margin:0; opacity:0.9; }
+  table { width:100%; border-collapse:collapse; font-size:0.92rem; margin:0 0 16px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid rgba(255,255,255,0.12); vertical-align:top; }
+  th { font-family:"Space Mono", ui-monospace, monospace; font-weight:400; font-size:0.8rem; color:var(--turq); }
+  .wrap { overflow-x:auto; }
+  hr { border:0; border-top:1px solid rgba(255,255,255,0.15); margin:48px 0 0; }
   footer { margin-top:48px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.15); font-size:0.85rem; opacity:0.8; }
 </style>
 </head>
@@ -28,21 +42,69 @@
 <main>
   <img class="logo" src="icon-512.png?v=2" alt="dataktu" width="96" height="96">
   <h1>data<span>ktu</span></h1>
-  <div class="tag">L'actualité et les tendances décryptées par la data</div>
+  <div class="tag">L'actualité et les tendances décryptées par la data — news and trends, explained with data</div>
+  <div class="lang"><a href="#fr">Français</a> · <a href="#en">English</a></div>
 
-  <p>dataktu publie des vidéos courtes et des carrousels en français, construits à partir de données publiques et vérifiées : open data, instituts statistiques, publications scientifiques. Chaque contenu cite sa source.</p>
+  <section id="fr" lang="fr">
+    <h2>Qui sommes-nous</h2>
+    <p>dataktu publie des vidéos courtes en français, construites à partir de données publiques et vérifiées : open data, instituts statistiques, publications scientifiques. Chaque vidéo répond à une question d'actualité avec un chiffre, et cite sa source.</p>
 
-  <p>Retrouvez dataktu sur :</p>
-  <ul>
-    <li><a href="https://www.instagram.com/dataktu" rel="noopener">Instagram</a></li>
-    <li><a href="https://www.tiktok.com/@dataktu4" rel="noopener">TikTok</a></li>
-    <li><a href="https://www.youtube.com/@dataktu" rel="noopener">YouTube</a></li>
-  </ul>
+    <p>Retrouvez dataktu sur :</p>
+    <ul>
+      <li><a href="https://www.instagram.com/dataktu" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/@dataktu" rel="noopener">TikTok</a></li>
+      <li><a href="https://www.youtube.com/@dataktu" rel="noopener">YouTube</a></li>
+    </ul>
 
-  <p>La production et la publication des contenus sont assurées par un outil interne, utilisé uniquement par l'éditeur du compte. Cet outil utilise les <strong>services API de YouTube</strong> et les API officielles des autres plateformes. En l'utilisant, l'éditeur est lié par les <a href="https://www.youtube.com/t/terms" rel="noopener">Conditions d'utilisation de YouTube</a> ; les <a href="https://policies.google.com/privacy" rel="noopener">Règles de confidentialité de Google</a> s'appliquent aux données YouTube traitées. Voir notre <a href="privacy.html">politique de confidentialité</a>.</p>
+    <p>La production et la publication des contenus sont assurées par un outil interne, utilisé uniquement par l'éditeur du compte. Cet outil utilise les <strong>services API de YouTube</strong> et les API officielles des autres plateformes. En l'utilisant, l'éditeur est lié par les <a href="https://www.youtube.com/t/terms" rel="noopener">Conditions d'utilisation de YouTube</a> ; les <a href="https://policies.google.com/privacy" rel="noopener">Règles de confidentialité de Google</a> s'appliquent aux données YouTube traitées. Voir notre <a href="privacy.html">politique de confidentialité</a>.</p>
+  </section>
+
+  <hr>
+
+  <section id="en" lang="en">
+    <h2>About dataktu</h2>
+    <p>dataktu is a French-language data-journalism channel. Each short video (30–40 seconds, vertical 1080×1920) answers a question raised by the news with one verified figure from public data — national statistics offices, open-data portals, scientific publications — and always cites its source.</p>
+
+    <div class="eyebrow">Recent videos on TikTok</div>
+    <div class="cards">
+      <div class="card">
+        <h3><a href="https://www.tiktok.com/@dataktu/video/7697291040734121249" rel="noopener">How Tesla's new Roadster sticks to the ceiling</a></h3>
+        <p>The physics of fan-generated downforce, in numbers.</p>
+      </div>
+      <div class="card">
+        <h3><a href="https://www.tiktok.com/@dataktu/video/7698754300381515041" rel="noopener">185 mm of rain in one hour in Corsica</a></h3>
+        <p>A new French rainfall record, compared with the previous one.</p>
+      </div>
+      <div class="card">
+        <h3><a href="https://www.tiktok.com/@dataktu/video/7699063164083670305" rel="noopener">A power cut in one of Google Cloud's London zones</a></h3>
+        <p>What happens to services when one data-centre zone goes down.</p>
+      </div>
+    </div>
+
+    <h2>How dataktu uses TikTok</h2>
+    <p>dataktu runs a private, single-user publishing tool. It is used only by the dataktu publisher, only on the dataktu TikTok account, which he owns. No other TikTok user ever signs in to it, and it is not offered to the public.</p>
+    <ol>
+      <li><strong>Sign in with TikTok.</strong> The publisher authorizes the tool once through TikTok Login Kit (OAuth 2.0 with PKCE).</li>
+      <li><strong>Upload.</strong> When a video is finished and approved by the publisher, the tool sends it to the dataktu account with the Content Posting API. The publisher then reviews it in the TikTok app, adds the caption and publishes it himself.</li>
+      <li><strong>Measure.</strong> Once a day the tool reads the account's public statistics (followers, views, likes, comments and shares per video) to compare which subjects work best.</li>
+    </ol>
+
+    <div class="wrap">
+    <table>
+      <tr><th>Scope</th><th>What it is used for</th></tr>
+      <tr><td><code>user.info.basic</code></td><td>Display name and avatar, to confirm the right account is connected.</td></tr>
+      <tr><td><code>user.info.stats</code></td><td>Follower and like counts of the dataktu account.</td></tr>
+      <tr><td><code>video.list</code></td><td>Views, likes, comments and shares of dataktu's own videos.</td></tr>
+      <tr><td><code>video.upload</code></td><td>Send a finished video to the dataktu account as a draft.</td></tr>
+      <tr><td><code>video.publish</code></td><td>Publish a finished video directly to the dataktu account, after the publisher has approved it.</td></tr>
+    </table>
+    </div>
+
+    <p>Tokens and statistics are stored on a private server controlled by the publisher. No TikTok data is sold, shared or transferred to anyone. Details: <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a>.</p>
+  </section>
 
   <footer>
-    <a href="privacy.html">Politique de confidentialité</a> · <a href="terms.html">Conditions d'utilisation</a><br>
+    <a href="privacy.html">Politique de confidentialité / Privacy Policy</a> · <a href="terms.html">Conditions d'utilisation / Terms of Service</a><br>
     Contact : <a href="mailto:contact@dataktu.fr">contact@dataktu.fr</a>
   </footer>
 </main>
